@@ -45,9 +45,9 @@ const Dashboard = () => {
             <Typography gutterBottom variant="h5" component="div"sx={{fontFamily:"Girassol",textAlign:"left",color:"#046582"}}>
               {item?.title}
             </Typography>
-             <Typography>
+             {/* <Typography>
                {item?.addDate}
-             </Typography>
+             </Typography> */}
             <Typography variant="body2" color="text.secondary" >
               {item?.content.substring(0,150)}...
               {/* {item?.content} */}
