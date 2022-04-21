@@ -8,7 +8,7 @@ import {
   TextField,
   Button,
 } from "@mui/material";
-import { toastErrorNotify, toastSuccessNotify } from "../helpers/toastNotify";
+import {  toastSuccessNotify } from "../helpers/toastNotify";
 import blogPng from "../assets/blok.png";
 import { BlogContext } from "../contexts/BlogContext";
 import {AuthContext} from '../contexts/AuthContext'

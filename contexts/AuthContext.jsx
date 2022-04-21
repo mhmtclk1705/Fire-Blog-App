@@ -1,11 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { auth, googleProvider } from "../helpers/firebase";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
 } from "firebase/auth";

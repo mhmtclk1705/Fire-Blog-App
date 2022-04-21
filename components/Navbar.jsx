@@ -1,18 +1,15 @@
 import React,{useContext} from 'react'
-// import { logout } from "../utils/firebaseUtil";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import cwLogo from "../assets/cw.jpeg"
 import { AuthContext } from '../contexts/AuthContext';
-import { logout } from "../contexts/AuthContext";
 
 const Navbar = () => {
     const navigate = useNavigate();

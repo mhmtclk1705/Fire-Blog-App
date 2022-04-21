@@ -9,12 +9,12 @@ import { CardMedia, Container } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { BlogContext } from "../contexts/BlogContext";
-import { AuthContext } from "../contexts/AuthContext";
+// import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Dashboard = () => {
-  const {currentUser} = useContext(AuthContext);
+  // const {currentUser} = useContext(AuthContext);
   const { useFetch } = useContext(BlogContext);
   const { blog } = useFetch();
   const navigate = useNavigate()

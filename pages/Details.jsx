@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -98,7 +98,6 @@ const Details = () => {
                 color: "white",
                 fontWeight: 600,
                 fontSize: "0.9rem",
-                fontSize:"1rem",
                 width:"200px"
               }}
               variant="contained"
