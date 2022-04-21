@@ -12,6 +12,8 @@ import { BlogContext } from "../contexts/BlogContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import moment from "moment";
+
 
 const Dashboard = () => {
   const {currentUser} = useContext(AuthContext);
@@ -45,9 +47,9 @@ const Dashboard = () => {
             <Typography gutterBottom variant="h5" component="div"sx={{fontFamily:"Girassol",textAlign:"left",color:"#046582"}}>
               {item?.title}
             </Typography>
-             {/* <Typography>
-               {item?.addDate}
-             </Typography> */}
+            <Typography>
+               {moment(item?.addDate).format("MM/DD/YYYY")}
+             </Typography>
             <Typography variant="body2" color="text.secondary" >
               {item?.content.substring(0,150)}...
               {/* {item?.content} */}

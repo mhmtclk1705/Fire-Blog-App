@@ -14,6 +14,8 @@ import { AuthContext } from "../contexts/AuthContext";
 import { Grid } from "@mui/material";
 import { BlogContext } from "../contexts/BlogContext";
 import { toastSuccessNotify } from "../helpers/toastNotify";
+import moment from "moment";
+
 const Details = () => {
   const navigate = useNavigate();
   const {deleteBlog} = useContext(BlogContext);
@@ -46,6 +48,9 @@ const Details = () => {
           <Typography gutterBottom variant="h5" component="div">
             {item?.title}
           </Typography>
+          <Typography>
+               {moment(item?.addDate).format("MM/DD/YYYY")}
+             </Typography>
           <Typography variant="body2" color="text.secondary">
             {item?.content}
           </Typography>
