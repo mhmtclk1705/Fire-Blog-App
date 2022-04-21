@@ -47,7 +47,7 @@ const Dashboard = () => {
             </Typography>
             {/* <Typography>
               {item?.addDate}
-            </Typography> */}
+            </Typography>  */}
             <Typography variant="body2" color="text.secondary" >
               {item?.content.substring(0,150)}...
               {/* {item?.content} */}
