@@ -52,7 +52,7 @@ const UpdateBlog = () => {
   }
 
   return (
-    <Container className="login-container" style={{ height: "100vh" }}>
+    <Container className="login-container" style={{ height: "110vh" }}>
     <Box className="login-box">
       <Avatar
         // className="login-avatar"
