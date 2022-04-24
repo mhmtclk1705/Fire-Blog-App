@@ -11,78 +11,99 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { BlogContext } from "../contexts/BlogContext";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import moment from "moment";
-
+import { toastErrorNotify } from "../helpers/toastNotify";
 
 const Dashboard = () => {
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   const { useFetch } = useContext(BlogContext);
   const { blog } = useFetch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-    
-    <Container >
-      <Typography gutterBottom variant="h3" component="div"
-      sx={{fontFamily:"Girassol",textAlign:"center",color:"#046582"}}>
+    <Container>
+      <Typography
+        gutterBottom
+        variant="h3"
+        component="div"
+        sx={{ fontFamily: "Girassol", textAlign: "center", color: "#046582" }}
+      >
         ──── Dashboard ────
       </Typography>
-    <Box
-      xs={{ d: "flex" }}
-      display="flex"
-      alignItems="center"
-      justifyContent="space-evenly"
-      flexWrap="wrap"
-    >
-      {blog?.map((item) => (
-        <Card sx={{ width:345, m: 2, height: 600,cursor:"pointer" }} key={item.id} onClick={() => currentUser ? (navigate(`/details`, { state: { item } })) : navigate("/login")}>
-          <CardMedia
-            component="img"
-            height="250"
-            image={item?.imgUrl}
-            alt="img"
-          />
-          <CardContent >
-            <Typography gutterBottom variant="h5" component="div"sx={{fontFamily:"Girassol",textAlign:"left",color:"#046582"}}>
-              {item?.title}
-            </Typography>
-            <Typography>
-               {moment(item?.addDate).format("MM/DD/YYYY")}
-             </Typography>
-            <Typography variant="body2" color="text.secondary" >
-              {item?.content.substring(0,150)}...
-              {/* {item?.content} */}
-            </Typography>
-          </CardContent>
-          <Typography gutterBottom sx={{ml:2}} variant="h6">
-          <AccountCircleIcon
-          style={{position:"relative",top:"5px",fontSize:"30px"}}
-          /> {item?.user}
-            </Typography>
-          <CardActions>
-            <Button size="small">
-              <FavoriteIcon
-                style={{
-                  marginRight: "7px",
-                  color: item.likeCount > 0 ? "red" : "gray",
+      <Box
+        xs={{ d: "flex" }}
+        display="flex"
+        alignItems="center"
+        justifyContent="space-evenly"
+        flexWrap="wrap"
+      >
+        {blog?.map((item) => (
+          <Card
+            sx={{ width: 345, m: 2, height: 600, cursor: "pointer" }}
+            key={item.id}
+            onClick={() =>
+              currentUser
+                ? navigate(`/details`, { state: { item } })
+                : (navigate("/login") & toastErrorNotify("Login for details of blog!"))
+            }
+          >
+            <CardMedia
+              component="img"
+              height="250"
+              image={item?.imgUrl}
+              alt="img"
+            />
+            <CardContent>
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{
+                  fontFamily: "Girassol",
+                  textAlign: "left",
+                  color: "#046582",
                 }}
-              />
-              {item?.likeCount}
-            </Button>
-            <Button size="small">
-              <ChatBubbleOutlineIcon
-                style={{
-                  marginRight: "7px",
-                  color: item.commentCount > 0 ? "blue" : "gray",
-                }}
-              />
-              {item?.commentCount}
-            </Button>
-          </CardActions>
-        </Card>
-      ))}
-    </Box>
+              >
+                {item?.title}
+              </Typography>
+              <Typography>
+                {moment(item?.addDate).format("MM/DD/YYYY")}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {item?.content.substring(0, 150)}...
+                {/* {item?.content} */}
+              </Typography>
+            </CardContent>
+            <Typography gutterBottom sx={{ ml: 2 }} variant="h6">
+              <AccountCircleIcon
+                style={{ position: "relative", top: "5px", fontSize: "30px" }}
+              />{" "}
+              {item?.user}
+            </Typography>
+            <CardActions>
+              <Button size="small">
+                <FavoriteIcon
+                  style={{
+                    marginRight: "7px",
+                    color: item.likeCount > 0 ? "red" : "gray",
+                  }}
+                />
+                {item?.likeCount}
+              </Button>
+              <Button size="small">
+                <ChatBubbleOutlineIcon
+                  style={{
+                    marginRight: "7px",
+                    color: item.commentCount > 0 ? "blue" : "gray",
+                  }}
+                />
+                {item?.commentCount}
+              </Button>
+            </CardActions>
+          </Card>
+        ))}
+      </Box>
     </Container>
   );
 };
