@@ -43,7 +43,7 @@ const Details = () => {
         ──── Details ────
       </Typography>
       <Card sx={{ m: 9, cursor: "pointer" }} key={item.id}>
-        <CardMedia component="img" image={item?.imgUrl} alt="img" />
+        <CardMedia sx={{width:"auto",height:"50vh",margin:"auto"}} component="img" image={item?.imgUrl} alt="img" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {item?.title}
