@@ -36,7 +36,7 @@ const Dashboard = () => {
       flexWrap="wrap"
     >
       {blog?.map((item) => (
-        <Card sx={{ width:345, m: 2, height: 600,cursor:"pointer" }} key={item.id} onClick={() => navigate(`/details`, { state: { item } })}>
+        <Card sx={{ width:345, m: 2, height: 600,cursor:"pointer" }} key={item.id} onClick={() => currentUser ? (navigate(`/details`, { state: { item } })) : navigate("/login")}>
           <CardMedia
             component="img"
             height="250"
