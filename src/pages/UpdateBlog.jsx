@@ -15,6 +15,8 @@ import { AuthContext } from '../contexts/AuthContext';
 
 const UpdateBlog = () => {
   const {editBlog} = useContext(BlogContext);
+  const {currentUser} = useContext(AuthContext);
+
   const location = useLocation()
   const navigate = useNavigate()
   const item = location.state.item
