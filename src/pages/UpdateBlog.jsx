@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { BlogContext } from '../contexts/BlogContext';
 import { toastSuccessNotify } from '../helpers/toastNotify';
+import { AuthContext } from '../contexts/AuthContext';
 
 const UpdateBlog = () => {
   const {editBlog} = useContext(BlogContext);
@@ -24,7 +25,7 @@ const UpdateBlog = () => {
     title: item.title,
     content: item.content,
     imgUrl: item.imgUrl,
-    // user:item.email,
+    user:currentUser.email,
     addDate: new Date(),
     likeCount: 0,
     commentCount: 0,
